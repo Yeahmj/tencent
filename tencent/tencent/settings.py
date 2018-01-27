@@ -16,10 +16,10 @@ NEWSPIDER_MODULE = 'tencent.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'tencent (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+# ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'tencent.pipelines.TencentPipeline': 300,
+   'tencent.pipelines.TencentPipelinePro': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
