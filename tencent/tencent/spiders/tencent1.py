@@ -29,3 +29,11 @@ class TencentSpider(scrapy.Spider):
 
             # 返回数据给引擎
             yield item
+
+            # 获取下一页链接，并且做成请求发送个引擎
+            # 拼接下一页url
+            next_url = 'https://hr.tencent.com/' + response.xpath('//*[@id="next"]/@href').extract()[0]
+            # 判断是否到达最后一页
+            if 'javascript:;' not in next_url:
+                # 没有到达最后一页就发送请求，模拟翻页
+                yield scrapy.Request(next_url,callback=self.parse)
